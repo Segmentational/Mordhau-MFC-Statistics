@@ -1,0 +1,3 @@
+[submodule ".Source/Mordhau-RCON"]
+	path = .Source/Mordhau-RCON
+	url = https://github.com/Sniddunc/Mordhau-RCON.git
