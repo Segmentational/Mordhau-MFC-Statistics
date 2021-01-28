@@ -33,8 +33,7 @@ for (( PACKAGE = 0; PACKAGE < "${#DEPENDENCY[@]}"; PACKAGE++ )); do
     go get -v "${DEPENDENCY[$PACKAGE]}"
 done
 
-
-
+PUBLIC_IP="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 ```
 
 ## Modules ##

@@ -5,20 +5,18 @@ import (
 	"log"
 	"time"
 
-        mordhaurcon "github.com/sniddunc/mordhau-rcon"
-)
+	mordhaurcon "github.com/sniddunc/mordhau-rcon"
 
-var (
-	host           = "45.76.25.27"
-	port     int16 = 25575
-	password       = "NGI3MmVkN2FiZTQzYzFiMWQ3NWNlYjA2"
+	Environment "./Server"
 )
 
 func main() {
+	s = Environment.Initialize(".env")
+
 	clientConfig := &mordhaurcon.ClientConfig{
-		Host:              host,
-		Port:              port,
-		Password:          password,
+		Host:              s.host,
+		Port:              s.port,
+		Password:          s.password,
 		BroadcastHandler:  broadcastHandler,
 		DisconnectHandler: disconnectHandler,
 		// SendHeartbeatCommand:     true,
