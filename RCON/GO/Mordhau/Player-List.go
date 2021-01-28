@@ -3,26 +3,57 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+	"strconv"
 	"time"
 
+	env "github.com/joho/godotenv"
 	mordhaurcon "github.com/sniddunc/mordhau-rcon"
+
 )
 
-var (
-	host           = "45.76.25.27"
-	port     int16 = 25575
-	password       = "NGI3MmVkN2FiZTQzYzFiMWQ3NWNlYjA2"
-)
+type Server struct {
+	host string
+	port string
+	password string
+}
+
+func abstract(file string, key string) string {
+	if (env.Load(file)) != nil {
+		log.Fatalf("Error Loading Environment File")
+	}
+	return os.Getenv(key)
+}
+
+func initialize(file string) Server {
+	return Server {
+		host: abstract(file, "MORDHAU_SERVER_HOST"),
+		port: abstract(file, "MORDHAU_SERVER_RCON"),
+		password: abstract(file, "MORDHAU_SERVER_PASSWORD"),
+	}
+}
 
 func main() {
+	server := Server {
+		host: abstract("./Mordhau/.env", "MORDHAU_SERVER_HOST"),
+		port: abstract("./Mordhau/.env", "MORDHAU_SERVER_RCON"),
+		password: abstract("./Mordhau/.env", "MORDHAU_SERVER_PASSWORD"),
+	}
+
+	port, err := strconv.ParseInt(server.port, 10, 16)
+
+	if err != nil {
+		panic(err)
+	}
+
 	clientConfig := &mordhaurcon.ClientConfig{
-		Host:              host,
-		Port:              port,
-		Password:          password,
+		Host:              server.host,
+		Port:              int16(int64(port)),
+		Password:          server.password,
 		BroadcastHandler:  broadcastHandler,
 		DisconnectHandler: disconnectHandler,
-		// SendHeartbeatCommand:     true,
-		// HeartbeatCommandInterval: time.Second * 10,
+		SendHeartbeatCommand:     true,
+		HeartbeatCommandInterval: time.Second * 10,
 	}
 
 	client := mordhaurcon.NewClient(clientConfig)

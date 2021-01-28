@@ -174,7 +174,6 @@ local_settings.py
 
 instance/
 
-.env
 .flask
 .token
 .flask-token
@@ -287,24 +286,6 @@ pip-selfcheck.json
 [Ll]ib64
 [Ll]ocal
 [Ss]cripts
-
-# -----------------------------------------------------------------------------
-# Environments                                                        (Python)
-# -----------------------------------------------------------------------------
-
-.env
-.venv
-Environment.env
-
-env
-venv
-ENV
-env.bak
-venv.bak
-
-*.lock
-*.Lock
-*.LOCK
 
 # -----------------------------------------------------------------------------
 # Static Typing                                                       (Python)
@@ -919,3 +900,21 @@ Cloud_ASGI.egg-info
 **/*.idea
 **/*.idea/
 **/*.idea/*
+
+# -----------------------------------------------------------------------------
+# Environments                                          (LLC.(s) & Affiliates)
+# -----------------------------------------------------------------------------
+
+.env
+.venv
+Environment.env
+
+env
+venv
+ENV
+env.bak
+venv.bak
+
+*.lock
+*.Lock
+*.LOCK
