@@ -29,7 +29,7 @@ export DEPENDENCY=(
 
 cd "${CWD}/RCON/GO"
 
-for (( PACKAGE = 0; PACKAGE < ${#DEPENDENCY[@]}; PACKAGE++ )); do
+for (( PACKAGE = 0; PACKAGE < "${#DEPENDENCY[@]}"; PACKAGE++ )); do
     go get -v "${DEPENDENCY[$PACKAGE]}"
 done
 
