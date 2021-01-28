@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-        mordhaurcon "github.com/sniddunc/mordhau-rcon"
+	mordhaurcon "github.com/sniddunc/mordhau-rcon"
 )
 
 var (
