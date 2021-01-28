@@ -20,7 +20,26 @@ cd ./Mordhau-MFC-Statistics
 
 ## Overview ##
 
-...
+```GO
+export CWD="$(git rev-parse --show-toplevel)"
+export DEPENDENCY=(
+    "github.com/sniddunc/mordhau-rcon"
+    "github.com/joho/godotenv"
+)
+
+cd "${CWD}/RCON/GO"
+
+for (( PACKAGE = 0; PACKAGE < ${#DEPENDENCY[@]}; PACKAGE++ )); do
+    go get -v "${DEPENDENCY[$PACKAGE]}"
+done
+
+
+
+```
+
+## Modules ##
+
+- [GoDotENV](https://github.com/joho/godotenv)
 
 ## RCON ##
 
