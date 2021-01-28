@@ -432,7 +432,6 @@ Mkfile.old
 .tmp_versions
 
 *.cmd
-*.mod*
 
 # -----------------------------------------------------------------------------
 # Core Dumps                                          (C Programming Language)
