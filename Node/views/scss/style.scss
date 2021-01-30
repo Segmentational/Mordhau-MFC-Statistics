@@ -1,0 +1,7 @@
+/* style.scss
+ * Main stylesheet written in SASS that gets compiled into CSS with the node-sass module
+ */
+
+// Global styling
+*{margin: 0; padding: 0; box-sizing: border-box}
+body{background: red}

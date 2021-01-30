@@ -1,0 +1,21 @@
+{
+  "name": "mordhau",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "sass": "node-sass --watch ./views/scss/ -o ./views/css/",
+    "start": "concurrently \"npm run sass\" \"nodemon server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7",
+    "pug": "^3.0.0"
+  }
+}
